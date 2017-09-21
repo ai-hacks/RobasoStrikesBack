@@ -2,10 +2,10 @@
 
 grammar dialog;
 
-<menu_command> =  abart gustav abart           |
-                  gustav in muss kann  |
-                  kann in           |
-                  muss in kann       ;
+<menu_command> =  c c s           |
+                  w h g s  |
+                  f h           |
+                  h c f       ;
 
 
 public <command> = <menu_command>;

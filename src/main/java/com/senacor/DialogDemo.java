@@ -23,7 +23,7 @@ public class DialogDemo {
     private static final String ACOUSTIC_MODEL =
             "resource:/edu/cmu/sphinx/models/model_de";
     private static final String DICTIONARY_PATH =
-            "resource:/edu/cmu/sphinx/models/dict_de/cmusphinx-voxforge-de.dic";
+            "resource:/edu/cmu/sphinx/models/dict_de/alphabet.dic";
     private static final String GRAMMAR_PATH =
             "resource:/edu/cmu/sphinx/demo/dialog/";
     private static final String LANGUAGE_MODEL =
