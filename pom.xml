@@ -44,6 +44,40 @@
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>dl sphinx language model</id>
+            <activation>
+                <os><family>unix</family></os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.6.0</version>
+                        <executions>
+                            <execution>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>${basedir}/src/main/script/dl-sphinx-corpus.sh</executable>
+                                    <workingDirectory>${basedir}/src/main/resources</workingDirectory>
+                                    <arguments>
+                                        <argument>test.sample</argument>
+                                        <argument>${build.outputDirectory}/test</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <repositories>
         <repository>
             <id>so</id>
