@@ -24,11 +24,7 @@ public class TextToSpeech {
         BlockUntilEndListener listener = new BlockUntilEndListener();
         speech.addLineListener(listener);
         speech.start();
-        try {
-            listener.waitUntilDone();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        listener.waitUntilDone();
     }
 
     public Clip prepareSpeech(String text) {
@@ -38,13 +34,14 @@ public class TextToSpeech {
             BlockUntilEndListener listener = new BlockUntilEndListener();
             clip.open(audio);
             return clip;
-        } catch (LineUnavailableException | SynthesisException| IOException e) {
+        } catch (LineUnavailableException | SynthesisException | IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     public static class BlockUntilEndListener implements LineListener {
         private boolean done = false;
+
         @Override
         public synchronized void update(LineEvent event) {
             LineEvent.Type eventType = event.getType();
@@ -53,8 +50,15 @@ public class TextToSpeech {
                 notifyAll();
             }
         }
-        public synchronized void waitUntilDone() throws InterruptedException {
-            while (!done) { wait(); }
+
+        public synchronized void waitUntilDone() {
+            while (!done) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
     }
 }

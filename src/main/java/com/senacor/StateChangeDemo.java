@@ -13,11 +13,8 @@ package com.senacor;
 
 import edu.cmu.sphinx.api.SpeechResult;
 
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.TargetDataLine;
-import java.util.HashMap;
+import javax.sound.sampled.*;
+import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
 
@@ -33,13 +30,14 @@ public class StateChangeDemo {
         TextToSpeech tts = new TextToSpeech();
 
         ReactToAnswer reactor = new DialogReactor(SpeechRecognizer.fromGrammar("dialog"));
-        while (true) {
-            System.out.println("recognizer regonizer");
-            try (ResultProducer rp = reactor.produceResults()) {
+        try (ResultProducer rp = reactor.produceResults()) {
+            while (true) {
+                System.out.println("recognizer regonizer");
                 System.out.println("recognizer initialized");
                 Reaction react;
                 try (Microphone m = new Microphone(mic)) {
                     System.out.println("getting results");
+                    beep();
                     Optional<SpeechResult> result = rp.getResult(m.getStream());
                     System.out.println("got result");
                     react = result.map(reactor::reactTo).orElse(new Reaction(reactor, "du hast nichts geantwortet"));
@@ -50,29 +48,58 @@ public class StateChangeDemo {
                 reactor = react.getNextReactor();
                 System.out.println("closing recognizer");
             }
-            System.out.println("recognizer closed");
+//            System.out.println("recognizer closed");
         }
     }
 
     private static class DialogReactor implements ReactToAnswer {
         private final SpeechRecognizer dialogRecognizer;
 
+        private final Map<String, String> abbrevationMap;
+
         public DialogReactor(SpeechRecognizer dialogRecognizer) {
             this.dialogRecognizer = dialogRecognizer;
+            abbrevationMap = new AbbreviationImporter().getAbbrevationMap("baa.csv");
         }
 
         @Override
         public Reaction reactTo(SpeechResult answer) {
             String hypothesis = answer.getHypothesis();
-            if(UNKOWN_HYPOTHESIS.equals(hypothesis)){
-                return new Reaction(this, "Waas");
+            if (UNKOWN_HYPOTHESIS.equals(hypothesis)) {
+                return new Reaction(this, "Was");
             }
-            return new Reaction(this, "Du möchtest: " + hypothesis);
+
+            String utterance = answer.getHypothesis().trim();
+            System.out.println(utterance);
+            String nospaces = utterance.replaceAll(" ", "");
+            String acro = abbrevationMap.get(nospaces);
+            if (acro != null) {
+                return new Reaction(this, utterance + " bedeutet " + acro);
+            }
+
+            System.out.println("#### undefined #### '" + utterance + '\'');
+            return new Reaction(this, "Ich kann " + utterance + " nicht definieren");
         }
 
         @Override
         public ResultProducer produceResults() {
             return dialogRecognizer.startRecognition();
+        }
+    }
+
+    public static void beep() {
+        try {
+            AudioInputStream stream = AudioSystem.getAudioInputStream(ClassLoader.getSystemResourceAsStream("beep_lo.wav"));
+            AudioFormat format = stream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            Clip clip = (Clip) AudioSystem.getLine(info);
+            TextToSpeech.BlockUntilEndListener blocker = new TextToSpeech.BlockUntilEndListener();
+            clip.addLineListener(blocker);
+            clip.open(stream);
+            clip.start();
+            blocker.waitUntilDone();
+        } catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+            e.printStackTrace();
         }
     }
 
