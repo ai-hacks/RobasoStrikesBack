@@ -21,6 +21,29 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.chrisdchristo</groupId>
+                <artifactId>capsule-maven-plugin</artifactId>
+                <version>1.4.3</version>
+                <configuration>
+                    <appClass>com.senacor.DialogDemo</appClass>
+                    <type>fat</type>
+                    <chmod>true</chmod>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <repositories>
         <repository>
             <id>so</id>
@@ -29,5 +52,4 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </repository>
     </repositories>
-
 </project>
