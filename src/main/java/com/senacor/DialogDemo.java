@@ -32,6 +32,8 @@ public class DialogDemo {
     private static final Map<String, Integer> DIGITS =
             new HashMap<String, Integer>();
 
+    private static Map<String, String> abbrevationMap;
+
     static {
         DIGITS.put("oh", 0);
         DIGITS.put("zero", 0);
@@ -48,6 +50,9 @@ public class DialogDemo {
 
 
     public static void main(String[] args) throws Exception {
+
+        abbrevationMap = new AbbreviationImporter().getAbbrevationMap("baa.csv");
+
         Configuration configuration = new Configuration();
         configuration.setAcousticModelPath(ACOUSTIC_MODEL);
         configuration.setDictionaryPath(DICTIONARY_PATH);
@@ -63,16 +68,13 @@ public class DialogDemo {
 
             String utterance = lmRecognizer.getResult().getHypothesis();
             System.out.println(utterance);
-
-            if (utterance.startsWith("exit"))
-                break;
-
-            if (utterance.endsWith("weather forecast")) {
-                lmRecognizer.stopRecognition();
-                lmRecognizer.startRecognition(true);
+            utterance = utterance.replaceAll(" ", "");
+            if (abbrevationMap.keySet().contains(utterance)) {
+                System.out.println(abbrevationMap.get(utterance));
             }
         }
 
-        lmRecognizer.stopRecognition();
     }
+
+
 }
