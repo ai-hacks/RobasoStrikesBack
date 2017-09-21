@@ -2,10 +2,1919 @@
 
 grammar dialog;
 
-<menu_command> =  abart gustav abart           |
-                  gustav in muss kann  |
-                  kann in           |
-                  muss in kann       ;
+<menu_command> =  a |
+                  a |
+                  a a |
+                  a a |
+                  a b |
+                  a b |
+                  a b |
+                  a b |
+                  a b b a |
+                  a b d r |
+                  a b e w g r |
+                  a b f |
+                  a b g |
+                  a b g g |
+                  a b h |
+                  a b i |
+                  a b i s |
+                  a b l |
+                  a b l |
+                  a b l e g |
+                  a b m |
+                  a b m a |
+                  a b o r d n b e s t |
+                  a b s |
+                  a b s c h n |
+                  a b s g e s e l l |
+                  s c h a f t e n |
+                  a c |
+                  a d |
+                  a d |
+                  a d a |
+                  a d r |
+                  a d v |
+                  a e |
+                  a d |
+                  a g |
+                  a n d |
+                  a n d a |
+                  a n d g |
+                  a n d v |
+                  a e n t g |
+                  a e r |
+                  a e v |
+                  a e v o |
+                  a e z |
+                  a f |
+                  a f b w |
+                  a f d b |
+                  a f o g |
+                  a f u b a u |
+                  a g |
+                  a g |
+                  a g g |
+                  a g e b u h r e n |
+                  s g b i i i |
+                  a g e b u h r e n |
+                  s g b i i i |
+                  a g e h i n |
+                  a g e n |
+                  a g h |
+                  a g r |
+                  a g s |
+                  a g s |
+                  a g v |
+                  a g v |
+                  a i i n |
+                  a i o s p |
+                  a k g |
+                  a k n z |
+                  a k o |
+                  a k z v |
+                  a l |
+                  a l b |
+                  a l g |
+                  a l g |
+                  a l g i |
+                  a l g i i |
+                  a l g i i v |
+                  a l g p c |
+                  a l g w |
+                  a l g w b |
+                  a l g w b e r r e h a g |
+                  a l h i |
+                  a l o |
+                  a l o m e l d u n g |
+                  a l u g |
+                  a l v |
+                  a l v a b k |
+                  a m |
+                  a m |
+                  a m a |
+                  a m e v |
+                  a m i s |
+                  a m p |
+                  a m p o l |
+                  a m s |
+                  a m t l e r l |
+                  a n |
+                  a n b a |
+                  a n f g |
+                  a n h |
+                  a n h i |
+                  a n l |
+                  a n m |
+                  a n n |
+                  a n o a v |
+                  a n p |
+                  a n p g |
+                  a n r |
+                  a n t v |
+                  a n u |
+                  a n v |
+                  a n w |
+                  a n w |
+                  a n w z v o |
+                  a o |
+                  a o |
+                  a o b |
+                  a p |
+                  a p |
+                  a p |
+                  a p |
+                  a p d r |
+                  a p l |
+                  a p l f g |
+                  a p r |
+                  a r b a n l |
+                  a r b a n w |
+                  a r b b l |
+                  a r b g |
+                  a r b g g |
+                  a r b p l s c h g |
+                  a r b s c h g |
+                  a r b s g |
+                  a r b s t a t t v |
+                  a r b s t o g |
+                  a r b s v |
+                  a r b z g |
+                  a r c h |
+                  a r e v |
+                  a r g e |
+                  a r g v |
+                  a r s |
+                  a r t |
+                  a r v |
+                  a r g v a a |
+                  a r v n g |
+                  a s |
+                  a s a v |
+                  a s b a |
+                  a s i g |
+                  a s p o |
+                  a s r |
+                  a s s |
+                  a s u |
+                  a s u m e l d u n g |
+                  a s y l b l g |
+                  a s y l v f g |
+                  a t |
+                  a t g |
+                  a t v b a |
+                  a u |
+                  a u b |
+                  a u b |
+                  a u g |
+                  a u k o s t v |
+                  a u f e n t h g e w g |
+                  a u f g e h |
+                  a u f h |
+                  a u f w |
+                  a u h g |
+                  a u s b o |
+                  a u s b v |
+                  a u s f |
+                  a u s f b e s t |
+                  a u s l |
+                  a u s l g |
+                  a u s l g v w v |
+                  a u s w g |
+                  a u v |
+                  a u v i a |
+                  a v |
+                  a v |
+                  a v a v g |
+                  a v e |
+                  a v e r m v |
+                  a v g s |
+                  a v h |
+                  a v m g |
+                  a v o |
+                  a v s |
+                  a v w v |
+                  a w |
+                  a w i |
+                  a w v |
+                  a w v |
+                  a l l |
+                  a z |
+                  a z |
+                  a z |
+                  a z r |
+                  a z w v |
+                  a z v |
+                  a z v |
+                  a z u b i |
+                  b |
+                  b a |
+                  b a |
+                  b a b i |
+                  b a c |
+                  b a d |
+                  b a d i v |
+                  b a i |
+                  b a r b |
+                  b a s h |
+                  b a v b |
+                  b a a |
+                  b a b |
+                  b a b |
+                  b a b l |
+                  b a b s c h n |
+                  b a e |
+                  b a r |
+                  b a f a |
+                  b a m f |
+                  b a f i n |
+                  b a f o g |
+                  b a g |
+                  b a g |
+                  b a g e |
+                  b a i r |
+                  b a j |
+                  b a k o v |
+                  b a k r e d |
+                  b a k w v t |
+                  b a m |
+                  b a m f |
+                  b a n s t p t |
+                  b a n w i n |
+                  b a n z |
+                  b a r |
+                  b a r b b l |
+                  b a r c h |
+                  b a r c h f a |
+                  b a r c h g |
+                  b a r c h l a a |
+                  b a r c h m a |
+                  b a r c h z n s |
+                  b a r o v |
+                  b a s t |
+                  b a s t |
+                  b a u a |
+                  b a u b e t r v o |
+                  b a u d i r i n |
+                  b a u g b |
+                  b a u l a r m g |
+                  b a u n v |
+                  b a u n v o |
+                  b a v |
+                  b a v |
+                  b a w |
+                  b a w e |
+                  b a w v |
+                  b a z |
+                  b b |
+                  b b |
+                  b b a |
+                  b b a n d g |
+                  b b a g t |
+                  b b a n |
+                  b b b |
+                  b b e |
+                  b b e s g |
+                  b b e s o |
+                  b b g |
+                  b b i a b a |
+                  b b i g |
+                  b b k |
+                  b b n |
+                  b b n r |
+                  b b r |
+                  b b v a n p g |
+                  b b v l g |
+                  b b w |
+                  b c a |
+                  b d |
+                  b d a |
+                  b d a |
+                  b d d v |
+                  b d g |
+                  b d g |
+                  b d i |
+                  b d o |
+                  b d s g |
+                  b d v |
+                  b d u |
+                  b e a m t v g |
+                  b e a m t v u v |
+                  b e d i d |
+                  b e e g |
+                  b e g l |
+                  b e g r |
+                  b e i l |
+                  b e i t r |
+                  b e i t r a b |
+                  b e k |
+                  b e k r v |
+                  b e m |
+                  b e r b e r |
+                  b e r |
+                  b e r u f e n e t |
+                  b e r u f e n e t |
+                  b e s |
+                  b e s c h a |
+                  b e s c h f g |
+                  b e s g r |
+                  b e s o |
+                  b e s t |
+                  b e s u v |
+                  b e t a |
+                  b e t r r g |
+                  b e t r v g |
+                  b e u r k g |
+                  b e u r l r l |
+                  b e u r t e i l u n g s |
+                  r i c h t l a u f |
+                  b e v |
+                  b e v g |
+                  b e w a |
+                  b e w a |
+                  b e w k a t |
+                  b e z |
+                  b f |
+                  b f a i |
+                  b f a r m |
+                  b f d |
+                  b f d b a |
+                  b f d |
+                  b f d h |
+                  b f g |
+                  b f h |
+                  b f i o |
+                  b f k |
+                  b f n |
+                  b f s |
+                  b f u |
+                  b f v |
+                  b f w |
+                  b f w |
+                  b f z |
+                  b g |
+                  b g |
+                  b g b |
+                  b g b l |
+                  b g l e i g |
+                  b g g |
+                  b g f |
+                  b g h |
+                  b g h s t |
+                  b g h z |
+                  b g j |
+                  b g j |
+                  b g m |
+                  b g r |
+                  b g r |
+                  b g r |
+                  b g r e m b g |
+                  b g s |
+                  b g s |
+                  b g s a m t |
+                  b g s d i r |
+                  b g s p |
+                  b g s s c h |
+                  b g v v |
+                  b h i |
+                  b h k |
+                  b h o |
+                  b h v |
+                  b i b |
+                  b i b b |
+                  b i b e |
+                  b i c |
+                  b i k |
+                  b i l d s c h a r b v |
+                  b i o s t |
+                  b i p |
+                  b i s p |
+                  b i t v |
+                  b i z |
+                  b j a v |
+                  b k |
+                  b k |
+                  b k |
+                  b k |
+                  b k |
+                  b k |
+                  b k a |
+                  b k a r t a |
+                  b k b |
+                  b k g |
+                  b k g e |
+                  b k g g |
+                  b k k |
+                  b k i |
+                  b k m |
+                  b k n |
+                  b k v |
+                  b k z |
+                  b k z |
+                  b l |
+                  b l e |
+                  b l i s |
+                  b l g |
+                  b l k |
+                  b l v |
+                  b l z |
+                  b m a s |
+                  b m b f |
+                  b m e l d d u v |
+                  b m f |
+                  b m f s f j |
+                  b m g |
+                  b m i |
+                  b m j |
+                  b m o n v |
+                  b m t g i i |
+                  b m u |
+                  b m v b s |
+                  b m v e l |
+                  b m v g |
+                  b m w i |
+                  b m z |
+                  b n d |
+                  b n e t z a |
+                  b n s |
+                  b n v |
+                  b n v |
+                  b o |
+                  b o |
+                  b o k g |
+                  b o s e e a |
+                  b p a |
+                  b p a |
+                  b p a t g |
+                  b p b |
+                  b p e r s a |
+                  b p e r s v g |
+                  b p e r s v w o |
+                  b p j s |
+                  b p o l b g |
+                  b p r |
+                  b p r |
+                  b p r a |
+                  b p s |
+                  b p j m |
+                  b r |
+                  b r |
+                  b r a g o |
+                  b r a n d g |
+                  b r d r u c k s |
+                  b r e g |
+                  b r h |
+                  b r i |
+                  b r k g |
+                  b r r g |
+                  b s |
+                  b s |
+                  b s a |
+                  b s a |
+                  b s b v |
+                  b s g |
+                  b s g e |
+                  b s h |
+                  b s h g |
+                  b s i |
+                  b s i |
+                  b s p r a |
+                  b s t a t g |
+                  b s t b l |
+                  b s t u |
+                  b s v |
+                  b s z g |
+                  b t |
+                  w b |
+                  b t |
+                  b t |
+                  b t d r u c k s |
+                  b u |
+                  b u e |
+                  b u r o s |
+                  b u k g |
+                  b u n r |
+                  b u r l g |
+                  b u s t r a |
+                  b v |
+                  b u t |
+                  b u v |
+                  b v |
+                  b v |
+                  b v a |
+                  b v a |
+                  b v a |
+                  b b b |
+                  b v b |
+                  b v b |
+                  b v b l |
+                  b v e r f g |
+                  b v e r f g e |
+                  b v e r f g g |
+                  b v e r w g |
+                  b v e r w g e |
+                  b v f g |
+                  b v f r |
+                  b v g |
+                  b v m |
+                  b v n |
+                  b v s |
+                  b v s |
+                  b w |
+                  b w b |
+                  b w b s t |
+                  b w d a |
+                  b w g o d |
+                  b w t |
+                  b w v |
+                  b y |
+                  b z |
+                  b z b |
+                  b z g a |
+                  b z r |
+                  b z r g |
+                  b z r v w v |
+                  b z s |
+                  b z v o |
+                  c a n s |
+                  c a s t |
+                  c b t |
+                  c d g |
+                  c f |
+                  c g b |
+                  c o |
+                  c o b r a |
+                  c o l e i |
+                  c o l e i a a |
+                  c o l e i a l g a l h i |
+                  f b w a a |
+                  c o l e i b a b r e h a |
+                  z e n t r a l |
+                  c o l e i b k t e x t |
+                  c o l e i k g a a |
+                  c o l e i p c a t g |
+                  c o l e i n t |
+                  c o l e i p c b a b |
+                  r e h a |
+                  c o l e i p c e g s |
+                  c o l e i p c f w a |
+                  c o l e i w k |
+                  c o l e i w k |
+                  z e n t r a l |
+                  c o l e i z a |
+                  c o l i b r i |
+                  c o m |
+                  c o m e d |
+                  c o n d o r |
+                  c o n d o r w k |
+                  c o p w |
+                  c o p w m i t r a |
+                  c o r a e b d |
+                  c o s a c h |
+                  c o s i m a |
+                  c o s t a |
+                  c o z a s t |
+                  c p u |
+                  c r m |
+                  c u p |
+                  c u p d |
+                  c v |
+                  d a |
+                  d a |
+                  d a a d |
+                  d a f e |
+                  d a g |
+                  d a i |
+                  d a l e b |
+                  d a s |
+                  d a s c h l e |
+                  d a s t |
+                  d a u n |
+                  d a v |
+                  d a w b u |
+                  d a z |
+                  d b |
+                  d b |
+                  d b b |
+                  d b g |
+                  d b l |
+                  d b l r |
+                  d b m s |
+                  d d b |
+                  d d k |
+                  d d v |
+                  d e |
+                  d e a b s |
+                  d e d |
+                  d e g |
+                  d e l f i |
+                  d e l t a |
+                  d e s y |
+                  d e u v |
+                  d e v o |
+                  d f g |
+                  d f h w |
+                  d f s |
+                  d f u |
+                  d f v |
+                  d g b |
+                  d g p s |
+                  d i e |
+                  d i h k |
+                  d i m d i |
+                  d i n b a |
+                  d i p l o f h b u n d |
+                  d i p l v e r |
+                  d i r |
+                  d i r u p r o f |
+                  d i t s |
+                  d i t s l |
+                  d i v |
+                  d i v o |
+                  d k f a g |
+                  d k f z |
+                  d k f z |
+                  d k r |
+                  d k z |
+                  d l k |
+                  d l r |
+                  d l t |
+                  d o k |
+                  d o k u |
+                  d o p p i k |
+                  d p |
+                  d p m a |
+                  d q m |
+                  d r i g |
+                  d r v |
+                  d s e |
+                  d s e |
+                  d s r v |
+                  d s t |
+                  d s t |
+                  d s t g b |
+                  d t z |
+                  d t z |
+                  d u |
+                  d u b a |
+                  d u b a k |
+                  d u v o |
+                  d v |
+                  d v |
+                  d v |
+                  d v a |
+                  d v a u s l g |
+                  d v k a s s e f e |
+                  d v l a f g |
+                  d v v e r f a h r e n |
+                  d w |
+                  d w d |
+                  d w h |
+                  d w v a |
+                  e |
+                  e |
+                  e a |
+                  e a g f l |
+                  e a o |
+                  e a p l |
+                  e b a |
+                  e b b |
+                  e b d |
+                  e b e s t |
+                  e b z |
+                  e d v |
+                  e e |
+                  e e p v |
+                  e f i a |
+                  e f r e |
+                  e f t a |
+                  e f z g |
+                  e g |
+                  e g b g b |
+                  e g h i |
+                  e g i n s o |
+                  e g l a n |
+                  e g s |
+                  e g t |
+                  e g v |
+                  e g z |
+                  e h |
+                  e h e m |
+                  e h f g |
+                  e i b |
+                  e i b a |
+                  e i b a a w |
+                  e i b a b m |
+                  e i b e l |
+                  e i n a |
+                  e i n a |
+                  e i n f d |
+                  e i n f g |
+                  e i n g l |
+                  e i n g l a n p g |
+                  e i n g l g |
+                  e i n g l m v |
+                  e i n i g u n g s s f v v |
+                  e i n s t w a o |
+                  e i n v |
+                  e k |
+                  e k |
+                  e k |
+                  e k a |
+                  e k k |
+                  e l b |
+                  e l l |
+                  e l s |
+                  e l t z v |
+                  e n g m o t |
+                  e n t s c h l |
+                  e n t s r l |
+                  e p |
+                  e p |
+                  e p l |
+                  e p o s t |
+                  e q |
+                  e r e |
+                  e r g e r g |
+                  e r g b d |
+                  e r l e r l |
+                  e r l |
+                  e r n a |
+                  e r p |
+                  e r p |
+                  e r s d i g |
+                  e r s t g |
+                  e r z |
+                  e r z d |
+                  e r z g |
+                  e s |
+                  e s f |
+                  e s g |
+                  e s t d v |
+                  e s t g |
+                  e s t r |
+                  e t s |
+                  e u |
+                  e u |
+                  e u |
+                  e u b |
+                  e u g |
+                  e u g h |
+                  e u g h e |
+                  e u r e s |
+                  e u r e s t |
+                  e u r i k o m |
+                  e u r o |
+                  e u r l v |
+                  e v |
+                  e v |
+                  e v |
+                  e v a |
+                  e v u |
+                  e w g |
+                  e w r |
+                  e w s |
+                  e w w u |
+                  e x g z |
+                  e z |
+                  e z a v |
+                  e z n |
+                  e z u l v |
+                  e z v |
+                  f |
+                  f |
+                  f a i n |
+                  f a b i n |
+                  f a |
+                  f a b a s g b i i |
+                  f a h i g q u a l |
+                  f a i r |
+                  f a l |
+                  f a l k e |
+                  f a m k a |
+                  f a v |
+                  f a x |
+                  f b |
+                  f b a |
+                  f b a |
+                  f b a r |
+                  f b a r b e i t s |
+                  f b l |
+                  f b w |
+                  f d e |
+                  f e l e g |
+                  f f |
+                  f f |
+                  f f r |
+                  f g |
+                  f g |
+                  f g |
+                  f g b d d r |
+                  f g g |
+                  f g k |
+                  f g o |
+                  f h |
+                  f h |
+                  f h b |
+                  f h b e a u f t r a g t e r |
+                  f h b u n d |
+                  f h b u n d f b |
+                  f h s |
+                  f j d |
+                  f i b |
+                  f i m o s |
+                  f i n a s |
+                  f i n a s f a |
+                  f i n a s k f |
+                  f i n a s k r |
+                  f i n a s r l |
+                  f i n a u s g l g |
+                  f i s |
+                  f k |
+                  f k |
+                  f k f e e d b a c k |
+                  f k f |
+                  f k j |
+                  f l |
+                  f l a g |
+                  f m |
+                  f m |
+                  f o d o k a b |
+                  f o d o k a b s |
+                  f o j |
+                  f p f l v o |
+                  f p g |
+                  f p m |
+                  f p o g e h d b a |
+                  f r g |
+                  f s |
+                  f s j g |
+                  f s t a t g |
+                  f t d |
+                  f u |
+                  f u t e a m |
+                  f w a |
+                  f v |
+                  f v |
+                  f v g |
+                  f v i f |
+                  f z |
+                  f z a |
+                  f z j |
+                  f z k |
+                  f z z v |
+                  g |
+                  g |
+                  g |
+                  g a s g b i i |
+                  g a t |
+                  g b a |
+                  g b |
+                  g b f |
+                  g b l |
+                  g b l |
+                  g b o |
+                  g d |
+                  g d g e h d |
+                  g d b |
+                  g d e |
+                  g d e v e r b |
+                  g d s |
+                  g d o |
+                  g e |
+                  g e |
+                  g e f s t o f f v |
+                  g e l d l |
+                  g e m |
+                  g e m f r |
+                  g e m r d s c h r |
+                  g e r |
+                  g e s |
+                  g e s g e s |
+                  g e s g e s c h |
+                  g e s o |
+                  g e w |
+                  g e w o |
+                  g e z |
+                  g f |
+                  g f |
+                  g f a a |
+                  g f z |
+                  g f z |
+                  g g |
+                  g i s |
+                  g k g |
+                  g k s s |
+                  g k v |
+                  g k v w s g |
+                  g l a |
+                  g l e i c h b e r g |
+                  g l e i b |
+                  g l e i b w v |
+                  g l e i s t a t v |
+                  g l f |
+                  g l o s s a b |
+                  g m b l |
+                  g m d |
+                  g m s o g b |
+                  g o |
+                  g o a a |
+                  g o r d |
+                  g o a |
+                  g o z |
+                  g o z |
+                  g p |
+                  g p m |
+                  g p r |
+                  g r |
+                  g r d s |
+                  g r d v e r g |
+                  g r e |
+                  g r e s t g |
+                  g r n o v |
+                  g r s |
+                  g r s i d a v |
+                  g r s t g |
+                  g r v |
+                  g r v g |
+                  g r w |
+                  g r z |
+                  g s a m t |
+                  g s b p a m t |
+                  g s c h e c k b e s t |
+                  g s d i r |
+                  g s f |
+                  g s i |
+                  g s p |
+                  g s p l a h |
+                  g s s c h |
+                  g s t |
+                  g s t a p k |
+                  g s t l t r i n |
+                  g t z |
+                  g u g |
+                  g u v |
+                  g v |
+                  g v |
+                  g v b l |
+                  g v g |
+                  g v k o s t g |
+                  g w b |
+                  g w g |
+                  g z |
+                  g z r |
+                  h |
+                  h a |
+                  h a |
+                  h a |
+                  h a g |
+                  h a l b s |
+                  h a u s l g |
+                  h b |
+                  h b e s t |
+                  h d |
+                  h d h o h d |
+                  h d a |
+                  h d g |
+                  h d s w |
+                  h e g a |
+                  h e m |
+                  h f u k d o |
+                  h g |
+                  h g |
+                  h g b |
+                  h g r |
+                  h g r g |
+                  h h |
+                  h h a |
+                  h h g |
+                  h i n t o |
+                  h i s |
+                  h j |
+                  h j a v |
+                  h k g |
+                  h k r |
+                  h l u |
+                  h m i |
+                  h n f |
+                  h o a i |
+                  h o k o |
+                  h p |
+                  h p r |
+                  h p w |
+                  h q a |
+                  h r b |
+                  h r f g |
+                  h r g |
+                  h r k |
+                  h s |
+                  h s b v |
+                  h s c h l l g |
+                  h s t z u l v |
+                  h t |
+                  h u b a u |
+                  h u k d o |
+                  h v |
+                  h v |
+                  h v f r |
+                  h v g |
+                  h v m |
+                  h w k |
+                  h w o |
+                  h w v g |
+                  h z a h z a |
+                  i a |
+                  i a b |
+                  i a i p k |
+                  i a o |
+                  i b a n |
+                  i b v |
+                  i b z |
+                  i d b |
+                  i d f |
+                  i d f d g |
+                  i d f d v |
+                  i d f v |
+                  i d r |
+                  i d v |
+                  i f a g |
+                  i f b |
+                  i f d |
+                  i f l a s |
+                  i h k |
+                  i k |
+                  i k k |
+                  i k t |
+                  i l o |
+                  i m k a |
+                  i n b i l |
+                  i n f o n e t |
+                  i n g a |
+                  i n m e k o |
+                  i n t r e v i n t e r n e r e v i s i o n i n t a i v |
+                  i n s g |
+                  i n s o |
+                  i n s t d o k a b |
+                  i n t v |
+                  i n v z u l g |
+                  i p p |
+                  i r |
+                  i r |
+                  i r m |
+                  i r z |
+                  i s |
+                  i s c o |
+                  i s d n |
+                  i s i c |
+                  i s o |
+                  i t |
+                  i t s v |
+                  i t s y s |
+                  i u b |
+                  i u d |
+                  i v |
+                  i v |
+                  i v m |
+                  i v s s |
+                  i w f |
+                  i z |
+                  i z m |
+                  j a r b s c h g |
+                  j a e g r e n z e |
+                  j a v |
+                  j c |
+                  j f |
+                  j g g |
+                  j k |
+                  j m d |
+                  j n a z |
+                  j o b |
+                  j o s c h g |
+                  j s c h v o |
+                  j s t g |
+                  j u r |
+                  j u r i s |
+                  j u s o p r o |
+                  j v a |
+                  j w g |
+                  k a f e a r c h i v |
+                  k a o |
+                  k a p |
+                  k a u s a |
+                  k a v |
+                  k a z e |
+                  k b a |
+                  k b e s t |
+                  k b s t |
+                  k c c |
+                  k d |
+                  k d |
+                  k d u |
+                  k e r m i t |
+                  k e z g |
+                  k f |
+                  k f a |
+                  k f s a c h v g |
+                  k f w |
+                  k g |
+                  k g s |
+                  k g s t |
+                  k g z |
+                  k h b |
+                  k h v |
+                  k i z |
+                  k j h g |
+                  k k |
+                  k k k |
+                  k k n r |
+                  k k s |
+                  k l |
+                  k l d b |
+                  k l r |
+                  k l r b a |
+                  k m b a |
+                  k m k |
+                  k o d e |
+                  k o m m |
+                  k o m m s p v |
+                  k o m t r z v |
+                  k o o p a a d v |
+                  k o s t o |
+                  k o r e |
+                  k r |
+                  k r f r |
+                  k r g |
+                  k r m |
+                  k s c h g |
+                  k s t g |
+                  k u g |
+                  k u z |
+                  k u p |
+                  k u r s n e t |
+                  k u r s |
+                  k v |
+                  k v |
+                  k v a g |
+                  k v d a |
+                  k v d r |
+                  k v m b a u |
+                  k v n g |
+                  k v p |
+                  k v p f l i c h t i g |
+                  k w |
+                  k w |
+                  k w v |
+                  k z l |
+                  l |
+                  l a |
+                  l a g |
+                  l a g |
+                  l a n |
+                  l a p g e h d b a |
+                  l a u s g l t v |
+                  l a v |
+                  l b |
+                  l b a |
+                  l b e s g |
+                  l b g |
+                  l b o |
+                  l c f |
+                  l e |
+                  l e d |
+                  l e d b s |
+                  l e d i |
+                  l e k o |
+                  l g |
+                  l g r |
+                  l g v |
+                  l h o |
+                  l i |
+                  l i s |
+                  l i t d o k a b |
+                  l i t d o k a b s |
+                  l i t n a c h w |
+                  l k r |
+                  l k r s |
+                  l o h n g r |
+                  l o h n p f v o |
+                  l p |
+                  l p e r s a |
+                  l r a |
+                  l r e g |
+                  l s g |
+                  l s p |
+                  l s t d v |
+                  l s t k |
+                  l s t r |
+                  l t |
+                  l t d m e d d i r i n |
+                  l t d v d i r i n |
+                  l t d w d i r i n |
+                  l t r i n |
+                  l t v |
+                  l v |
+                  l v a |
+                  l v e r f |
+                  l v o |
+                  l w k k |
+                  l z b |
+                  m b i s m |
+                  m a g |
+                  m a g |
+                  m a g b |
+                  m a k w e r t e |
+                  m a k |
+                  m a n v |
+                  m a t |
+                  m a t a b |
+                  m a z |
+                  m a z |
+                  m b |
+                  m b e |
+                  m b e s f |
+                  m d m i t t l d |
+                  m d a |
+                  m d b |
+                  m d b g |
+                  m d b u |
+                  m d c |
+                  m d e |
+                  m d e p |
+                  m d l |
+                  m d w b |
+                  m d w d g b |
+                  m e d d i r i n |
+                  m e d o r i n |
+                  m e d r i n |
+                  m f |
+                  m g a a |
+                  m g r d |
+                  m i l o g |
+                  m i n |
+                  m i n b l |
+                  m i n b l f i n |
+                  m i s t r a |
+                  m i t b e s t g |
+                  m i t t |
+                  m i t t a b |
+                  m i t t b l |
+                  m k |
+                  m k |
+                  m k |
+                  m k z |
+                  m o b |
+                  m o b i |
+                  m o b i s |
+                  m o d e x |
+                  m o e s |
+                  m o t |
+                  m p |
+                  m p m |
+                  m p s t |
+                  m r k |
+                  m t l |
+                  m i |
+                  m u s c h g |
+                  m u s c h v |
+                  m u s s t i f t p t |
+                  m u v |
+                  m v |
+                  m v e r g v |
+                  m w |
+                  m w b |
+                  m w s t |
+                  m w v |
+                  n |
+                  n a b a |
+                  n a c e |
+                  n a c h r |
+                  n a d i s |
+                  n a g |
+                  n a m a n d g |
+                  n b e s t b a u |
+                  n b l |
+                  n c u |
+                  n e h e l g |
+                  n e u t r a |
+                  n f |
+                  n f |
+                  n f d |
+                  n f q |
+                  n g f |
+                  n k s |
+                  n k u |
+                  n m v |
+                  n n |
+                  n n f |
+                  n o v |
+                  n r |
+                  n r w |
+                  n s b |
+                  n v |
+                  n v |
+                  n w a |
+                  n w k |
+                  n w r |
+                  n z |
+                  o |
+                  o a g e h i n |
+                  o a m i n |
+                  o a w |
+                  o b a |
+                  o b b b e h |
+                  o b d b e h |
+                  o b e |
+                  o b g |
+                  o b s |
+                  o d |
+                  o d i r i n |
+                  o e c d |
+                  o e c e o e e c |
+                  o f f d |
+                  o f h |
+                  o f k |
+                  o f w |
+                  o g p |
+                  o g r |
+                  o i |
+                  o i v |
+                  o k |
+                  o l g |
+                  o p a |
+                  o p d s |
+                  o p o c e |
+                  o p t i c a l f i l i n g |
+                  o f r x |
+                  o r g z |
+                  o s |
+                  o s |
+                  o t i |
+                  o v b s t |
+                  o v g |
+                  o v i a |
+                  o v p |
+                  o w a |
+                  o w i |
+                  o w i g |
+                  o z |
+                  p |
+                  p |
+                  p b |
+                  p a |
+                  p a |
+                  p a b |
+                  p a p |
+                  p a r l |
+                  p a s |
+                  p a s d |
+                  p a v |
+                  p b |
+                  p b |
+                  p b a r |
+                  p b e g |
+                  p c |
+                  p d l |
+                  p e |
+                  p e b |
+                  p e b r l |
+                  p e i |
+                  p e k |
+                  p e p |
+                  p e r s v |
+                  p e s o |
+                  p f l e g e v g |
+                  p g |
+                  p g a |
+                  p h |
+                  p h b |
+                  p h h |
+                  p i n |
+                  p i n g u i n |
+                  p k |
+                  p k i |
+                  p k z |
+                  p l |
+                  p m |
+                  p m |
+                  p m o |
+                  p n a |
+                  p o a e v b a |
+                  p o a u s z u |
+                  b i l d e n d e |
+                  p o s |
+                  p p |
+                  p p l a |
+                  p r |
+                  p r |
+                  p r a s |
+                  p r a r i b a |
+                  p r l b a |
+                  p r o |
+                  p r o f i n |
+                  p r o i a b |
+                  p r o t |
+                  p r z |
+                  p s |
+                  p s a |
+                  p s t g |
+                  p s y c h i n |
+                  p t a |
+                  p t a b |
+                  p t a b e i |
+                  p t a b e z |
+                  p t a d |
+                  p t a f d a |
+                  p t a h |
+                  p t a p e |
+                  p t a u |
+                  p t a u v b |
+                  p t a v |
+                  p t a v a |
+                  p t b |
+                  p u k |
+                  p v |
+                  p w f |
+                  p z a |
+                  p z z v |
+                  q b m |
+                  q u i n t a b |
+                  r a g |
+                  r a l |
+                  r a l a p o g e h d |
+                  r a n o |
+                  r a u b p l |
+                  r a z |
+                  r b b a u |
+                  r b s |
+                  r c |
+                  r d |
+                  r d b b |
+                  r d b w |
+                  r d b y |
+                  r d g |
+                  r d h |
+                  r d n |
+                  r d n r w |
+                  r d n s b |
+                  r d r p s |
+                  r d s |
+                  r d s a t |
+                  r d e r l |
+                  r d n r |
+                  r d s c h r |
+                  r d v f g |
+                  r e c h t s v o |
+                  r e f |
+                  r e f |
+                  r e f |
+                  r f b |
+                  r e f l t r i n |
+                  r e f o r m g e s e t z |
+                  r e g |
+                  r e g b e z |
+                  r e g b l |
+                  r e g e n t w |
+                  r e g t p |
+                  r e h a |
+                  r e h a a n g l g |
+                  r f i a b |
+                  r h g f |
+                  r h i l f e g |
+                  r i t s |
+                  r i t s s v |
+                  r k |
+                  r k |
+                  r k i |
+                  r k v |
+                  r k w |
+                  r k r |
+                  r l |
+                  r l |
+                  r l b m b f |
+                  r l v |
+                  r l v w |
+                  r o g |
+                  r p |
+                  r p s |
+                  r r g |
+                  r s p r |
+                  r t a |
+                  r t u |
+                  r u b i n |
+                  r u c k h g |
+                  r u s t a g |
+                  r v |
+                  r v g |
+                  r v t |
+                  r v w v |
+                  r w g |
+                  r z |
+                  r z |
+                  s |
+                  s a c h b e z v |
+                  s a g k |
+                  s a i s o n k u g |
+                  s a m |
+                  s a m o f w |
+                  s a t |
+                  s b |
+                  s b a o b |
+                  s b b p k |
+                  s b v |
+                  s c |
+                  s c h b h r |
+                  s c h e c k g |
+                  s c h u f a |
+                  s c h w b b a g |
+                  s c h w b g |
+                  s c h w b a v |
+                  s c h w b a w v |
+                  s c h w b w o |
+                  s c h w b w v |
+                  s c m |
+                  s d b |
+                  s e |
+                  s e k g |
+                  s f b t |
+                  s f p |
+                  s f u |
+                  s g |
+                  s g |
+                  s g b |
+                  s g b i |
+                  s g b i i |
+                  s g b i i i |
+                  s g b i v |
+                  s g b v |
+                  s g b v i |
+                  s g b v i i |
+                  s g b v i i i |
+                  s g b i x |
+                  s g b x |
+                  s g b x i |
+                  s g g |
+                  s h g |
+                  s h t |
+                  s i |
+                  s i e |
+                  s i g g |
+                  s i g v |
+                  s i m b a |
+                  s i m p k |
+                  s k |
+                  s k |
+                  s l a |
+                  s m b p k |
+                  s o a |
+                  s o b |
+                  s o l i s |
+                  s o z h i d a v |
+                  s o z r |
+                  s o z v e r s a n p g |
+                  s p a r p g |
+                  s p e z a m b e d |
+                  s p k |
+                  s p r |
+                  s p r a c h f v |
+                  s p r a c h f v b g |
+                  s p u |
+                  s r |
+                  s r n |
+                  s t a |
+                  s t a |
+                  s t a n p g |
+                  s t a n z |
+                  s t a r e g g |
+                  s t a t i s |
+                  s t a t r e g g |
+                  s t b a |
+                  s t b a u f g |
+                  s t b g e b v |
+                  s t b k a h |
+                  s t b t h h |
+                  s t e a |
+                  s t e a i n f o |
+                  s t e k a |
+                  s t e l l v |
+                  s t e p |
+                  s t e p p l u s |
+                  s t e u e r i d |
+                  s t f g |
+                  s t g b |
+                  s t l a |
+                  s t o |
+                  s t p o |
+                  s t r a n d g |
+                  s t r e g |
+                  s t r e g b e k |
+                  s t r e g g |
+                  s t r f e g |
+                  s t r r g |
+                  s t r s p r |
+                  s t r t i l g g |
+                  s t u b |
+                  s t u g |
+                  s t v g |
+                  s t v o |
+                  s t v o l l z g |
+                  s t v z o |
+                  s t w g |
+                  s u b v g |
+                  s u r l v |
+                  s v |
+                  s v |
+                  s v a |
+                  s v a g |
+                  s v b g |
+                  s v g |
+                  s v g d d r |
+                  s v o d d r |
+                  s v p |
+                  s v w g |
+                  s w l |
+                  s w o t a n a l y s e |
+                  s w p |
+                  t a i n |
+                  t b |
+                  t b d |
+                  t c |
+                  t d l |
+                  t e |
+                  t e i l a l g |
+                  t e i l u b g |
+                  t g |
+                  t g r |
+                  t g v |
+                  t h |
+                  t h w |
+                  t i p |
+                  t i t |
+                  t k |
+                  t k g |
+                  t l |
+                  t l |
+                  t m |
+                  t o |
+                  t o p |
+                  t p |
+                  t p b |
+                  t r a n s f e r k u g |
+                  t s b |
+                  t t |
+                  t u k |
+                  t v |
+                  t v a f r |
+                  t v a m i n |
+                  t v a r i n |
+                  t v a t z b a |
+                  t v b a |
+                  t v g |
+                  t v i s |
+                  t v n b a |
+                  t v o d |
+                  t v u b a |
+                  t z |
+                  t z b f g |
+                  u |
+                  u b a |
+                  u b v |
+                  u e |
+                  u i |
+                  u i i |
+                  u b g |
+                  u g |
+                  u l g |
+                  u p l |
+                  u f |
+                  u f a b |
+                  u f z |
+                  u g r |
+                  u h g |
+                  u k b u n d |
+                  u k p t |
+                  u k s t e l l u n g |
+                  u k v |
+                  u n e s c o |
+                  u n i |
+                  u n t e r s |
+                  u r l g g |
+                  u r l v o |
+                  u r t |
+                  u s g |
+                  u s t d v |
+                  u s t g |
+                  u u |
+                  u v |
+                  u v |
+                  u v v |
+                  u w g |
+                  u z w g |
+                  v |
+                  v |
+                  v a |
+                  v a |
+                  v a |
+                  v a |
+                  v a |
+                  v a a a |
+                  v a f r |
+                  v a m |
+                  v a m i n |
+                  v a n o |
+                  v a r i n |
+                  v a s s i s t i n |
+                  v b |
+                  v b b a |
+                  v b d |
+                  v b g |
+                  v b l |
+                  v d a k |
+                  v d b |
+                  v d i r i n |
+                  v d r |
+                  v d r z |
+                  v e |
+                  v m |
+                  v e r a |
+                  v e r b i s |
+                  v e r d i |
+                  v e r f g h |
+                  v e r g g r |
+                  v e r g l o |
+                  v e r m b e z v |
+                  v e r m b g |
+                  v e r s |
+                  v e r s a m m l g |
+                  v e r s r u c k l g |
+                  v e r t r |
+                  v e r w |
+                  v e r w g e m |
+                  v e r w g r |
+                  v e r w r s p r |
+                  v e t |
+                  v f b |
+                  v f g |
+                  v f r |
+                  v g |
+                  v g |
+                  v g |
+                  v g a a |
+                  v g h |
+                  v g h e |
+                  v g p |
+                  v g r d |
+                  v g s |
+                  v g u |
+                  v h b |
+                  v h b b a |
+                  v h s |
+                  v i i n |
+                  v i a i n |
+                  p m |
+                  v k a |
+                  v k f v |
+                  v m b l |
+                  v n |
+                  v n |
+                  v o a r i n |
+                  v o b |
+                  v o b l |
+                  v o f |
+                  v o i i n |
+                  v o l |
+                  v o p r |
+                  v o p r |
+                  v o r i n |
+                  v o r g |
+                  v o r l v v b h o |
+                  v o r s |
+                  v o s i n |
+                  v p b o |
+                  v p f |
+                  v r i n |
+                  v r |
+                  v r g |
+                  v r s p r |
+                  v r l |
+                  v s |
+                  v s |
+                  v s a |
+                  v s f |
+                  v s n r |
+                  v s t |
+                  v s t r |
+                  v t |
+                  v u |
+                  v v |
+                  v v |
+                  v v |
+                  v v |
+                  v v b h o |
+                  v v g |
+                  v v h b |
+                  v v o |
+                  v w |
+                  v w g o |
+                  v w k o s t g |
+                  v w p o |
+                  v w v |
+                  v w v e r e i n f s o z g |
+                  v w v f g |
+                  v w v g |
+                  v w z g |
+                  v z |
+                  v z |
+                  v z |
+                  w a b t |
+                  w a g |
+                  w b a |
+                  w b f |
+                  w b t |
+                  w d i r i n |
+                  w e |
+                  w e b d a v |
+                  w e g |
+                  w e g e b a u |
+                  w e r t r |
+                  w e r t v |
+                  w f b m |
+                  w g |
+                  w g r |
+                  w g z |
+                  w h o |
+                  w i b e |
+                  w i g b l |
+                  w i s g |
+                  w k |
+                  w k l |
+                  w k u |
+                  w l |
+                  w l s |
+                  w n a |
+                  w o b a u g |
+                  w o b e w g |
+                  w o b i n d g |
+                  w o g g |
+                  w o p g |
+                  w o r i n |
+                  w o z g |
+                  w p f l g |
+                  w r i n |
+                  w s |
+                  w s |
+                  w s a |
+                  w s d |
+                  w s l |
+                  w v |
+                  w z |
+                  w z w |
+                  z |
+                  z a |
+                  z a v |
+                  z b |
+                  z b a u |
+                  z b f |
+                  z b g |
+                  z b l |
+                  z d a |
+                  z d a |
+                  z d g |
+                  z e |
+                  z e b i d |
+                  z e b r a |
+                  z e m a |
+                  z e r a u m |
+                  z e r b e r u s |
+                  z e v |
+                  z f a |
+                  z f a |
+                  z g |
+                  z h h |
+                  z i h o g a |
+                  z i n t a l v |
+                  z k |
+                  z k a |
+                  z k d |
+                  z k t |
+                  z p b e s t |
+                  z p d v |
+                  z p i d |
+                  z p l a |
+                  z p o |
+                  z s e g |
+                  z s s |
+                  z s t |
+                  z u |
+                  z u b e s t d a |
+                  z u f |
+                  z u s c h l a g s v |
+                  z u w g a a |
+                  z v |
+                  z v o r g |
+                  z w g |
+                  z w v |
+                  z z a |
+                  z z v ;
 
 
 public <command> = <menu_command>;
