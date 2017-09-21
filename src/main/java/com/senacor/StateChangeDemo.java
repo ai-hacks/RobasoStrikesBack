@@ -14,7 +14,11 @@ package com.senacor;
 import edu.cmu.sphinx.api.SpeechResult;
 
 import javax.sound.sampled.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Map;
 import java.util.Optional;
 
@@ -89,7 +93,23 @@ public class StateChangeDemo {
 
     public static void beep() {
         try {
-            AudioInputStream stream = AudioSystem.getAudioInputStream(ClassLoader.getSystemResourceAsStream("beep_lo.wav"));
+            InputStream beepwav = ClassLoader.getSystemResourceAsStream("beep_lo.wav");
+            if(beepwav == null) {
+                throw new RuntimeException("could not find beep wav");
+            }
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+            int nRead;
+            byte[] data = new byte[16384];
+
+            while ((nRead = beepwav.read(data, 0, data.length)) != -1) {
+                buffer.write(data, 0, nRead);
+            }
+
+            buffer.flush();
+            byte[] bytes = buffer.toByteArray();
+
+            AudioInputStream stream = AudioSystem.getAudioInputStream(new ByteArrayInputStream(bytes));
             AudioFormat format = stream.getFormat();
             DataLine.Info info = new DataLine.Info(Clip.class, format);
             Clip clip = (Clip) AudioSystem.getLine(info);
