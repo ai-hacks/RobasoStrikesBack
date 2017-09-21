@@ -8,6 +8,12 @@
     <artifactId>robaso-sphinx</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <marytts.version>5.2</marytts.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>edu.cmu.sphinx</groupId>
@@ -19,6 +25,16 @@
             <artifactId>sphinx4-data</artifactId>
             <version>5prealpha-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>de.dfki.mary</groupId>
+            <artifactId>voice-cmu-slt-hsmm</artifactId>
+            <version>${marytts.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.dfki.mary</groupId>
+            <artifactId>voice-dfki-pavoque-neutral-hsmm</artifactId>
+            <version>${marytts.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -28,7 +44,7 @@
                 <artifactId>capsule-maven-plugin</artifactId>
                 <version>1.4.3</version>
                 <configuration>
-                    <appClass>com.senacor.DialogDemo</appClass>
+                    <appClass>com.senacor.StateChangeDemo</appClass>
                     <type>fat</type>
                     <chmod>true</chmod>
                 </configuration>
@@ -84,6 +100,11 @@
             <releases><enabled>false</enabled></releases>
             <snapshots><enabled>true</enabled></snapshots>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+
+        <repository>
+            <id>jcenter</id>
+            <url>https://jcenter.bintray.com</url>
         </repository>
     </repositories>
 </project>
