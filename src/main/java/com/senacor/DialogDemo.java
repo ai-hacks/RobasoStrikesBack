@@ -21,13 +21,13 @@ import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 public class DialogDemo {
 
     private static final String ACOUSTIC_MODEL =
-            "resource:/edu/cmu/sphinx/models/en-us/en-us";
+            "resource:/edu/cmu/sphinx/models/model_de";
     private static final String DICTIONARY_PATH =
-            "resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict";
+            "resource:/edu/cmu/sphinx/models/dict_de/cmusphinx-voxforge-de.dic";
     private static final String GRAMMAR_PATH =
             "resource:/edu/cmu/sphinx/demo/dialog/";
     private static final String LANGUAGE_MODEL =
-            "resource:/edu/cmu/sphinx/demo/dialog/weather.lm";
+            "resource:/edu/cmu/sphinx/demo/dialog/lm_klein.lm";
 
     private static final Map<String, Integer> DIGITS =
             new HashMap<String, Integer>();
@@ -46,88 +46,6 @@ public class DialogDemo {
         DIGITS.put("nine", 9);
     }
 
-    private static double parseNumber(String[] tokens) {
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 1; i < tokens.length; ++i) {
-            if (tokens[i].equals("point"))
-                sb.append(".");
-            else
-                sb.append(DIGITS.get(tokens[i]));
-        }
-
-        return Double.parseDouble(sb.toString());
-    }
-    private static void recognizeDigits(LiveSpeechRecognizer recognizer) {
-        System.out.println("Digits recognition (using GrXML)");
-        System.out.println("--------------------------------");
-        System.out.println("Example: one two three");
-        System.out.println("Say \"101\" to exit");
-        System.out.println("--------------------------------");
-
-        recognizer.startRecognition(true);
-        while (true) {
-            String utterance = recognizer.getResult().getHypothesis();
-            if (utterance.equals("one zero one")
-                    || utterance.equals("one oh one"))
-                break;
-            else
-                System.out.println(utterance);
-        }
-        recognizer.stopRecognition();
-    }
-
-    private static void recognizerBankAccount(LiveSpeechRecognizer recognizer) {
-        System.out.println("This is bank account voice menu");
-        System.out.println("-------------------------------");
-        System.out.println("Example: balance");
-        System.out.println("Example: withdraw zero point five");
-        System.out.println("Example: deposit one two three");
-        System.out.println("Example: back");
-        System.out.println("-------------------------------");
-
-        double savings = .0;
-        recognizer.startRecognition(true);
-
-        while (true) {
-            String utterance = recognizer.getResult().getHypothesis();
-            if (utterance.endsWith("back")) {
-                break;
-            } else if (utterance.startsWith("deposit")) {
-                double deposit = parseNumber(utterance.split("\\s"));
-                savings += deposit;
-                System.out.format("Deposited: $%.2f\n", deposit);
-            } else if (utterance.startsWith("withdraw")) {
-                double withdraw = parseNumber(utterance.split("\\s"));
-                savings -= withdraw;
-                System.out.format("Withdrawn: $%.2f\n", withdraw);
-            } else if (!utterance.endsWith("balance")) {
-                System.out.println("Unrecognized command: " + utterance);
-            }
-
-            System.out.format("Your savings: $%.2f\n", savings);
-        }
-
-        recognizer.stopRecognition();
-    }
-
-    private static void recognizeWeather(LiveSpeechRecognizer recognizer) {
-        System.out.println("Try some forecast. End with \"the end\"");
-        System.out.println("-------------------------------------");
-        System.out.println("Example: mostly dry some fog patches tonight");
-        System.out.println("Example: sunny spells on wednesday");
-        System.out.println("-------------------------------------");
-
-        recognizer.startRecognition(true);
-        while (true) {
-            String utterance = recognizer.getResult().getHypothesis();
-            if (utterance.equals("the end"))
-                break;
-            else
-                System.out.println(utterance);
-        }
-        recognizer.stopRecognition();
-    }
 
     public static void main(String[] args) throws Exception {
         Configuration configuration = new Configuration();
@@ -137,50 +55,24 @@ public class DialogDemo {
         configuration.setUseGrammar(true);
 
         configuration.setGrammarName("dialog");
-        LiveSpeechRecognizer jsgfRecognizer =
-                new LiveSpeechRecognizer(configuration);
-
-        configuration.setGrammarName("digits.grxml");
-        LiveSpeechRecognizer grxmlRecognizer =
-                new LiveSpeechRecognizer(configuration);
-
-        configuration.setUseGrammar(false);
-        configuration.setLanguageModelPath(LANGUAGE_MODEL);
         LiveSpeechRecognizer lmRecognizer =
                 new LiveSpeechRecognizer(configuration);
 
-        jsgfRecognizer.startRecognition(true);
+        lmRecognizer.startRecognition(true);
         while (true) {
-            System.out.println("Choose menu item:");
-            System.out.println("Example: go to the bank account");
-            System.out.println("Example: exit the program");
-            System.out.println("Example: weather forecast");
-            System.out.println("Example: digits\n");
 
-            String utterance = jsgfRecognizer.getResult().getHypothesis();
+            String utterance = lmRecognizer.getResult().getHypothesis();
+            System.out.println(utterance);
 
             if (utterance.startsWith("exit"))
                 break;
 
-            if (utterance.equals("digits")) {
-                jsgfRecognizer.stopRecognition();
-                recognizeDigits(grxmlRecognizer);
-                jsgfRecognizer.startRecognition(true);
-            }
-
-            if (utterance.equals("bank account")) {
-                jsgfRecognizer.stopRecognition();
-                recognizerBankAccount(jsgfRecognizer);
-                jsgfRecognizer.startRecognition(true);
-            }
-
             if (utterance.endsWith("weather forecast")) {
-                jsgfRecognizer.stopRecognition();
-                recognizeWeather(lmRecognizer);
-                jsgfRecognizer.startRecognition(true);
+                lmRecognizer.stopRecognition();
+                lmRecognizer.startRecognition(true);
             }
         }
 
-        jsgfRecognizer.stopRecognition();
+        lmRecognizer.stopRecognition();
     }
 }

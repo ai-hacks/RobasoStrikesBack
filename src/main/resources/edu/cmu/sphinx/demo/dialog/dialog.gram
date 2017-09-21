@@ -2,28 +2,10 @@
 
 grammar dialog;
 
-<digit> = oh    |
-          zero  |
-          one   |
-          two   |
-          three |
-          four  |
-          five  |
-          six   |
-          seven |
-          eight |
-          nine  ;
+<menu_command> =  abart gustav abart           |
+                  gustav in muss kann  |
+                  kann in           |
+                  muss in kann       ;
 
-<number> = <digit>+ [point <digit>+];
 
-<menu_command> =  digits                     |
-                  [go to [the]] bank account |
-                  weather forecast           |
-                  exit [[the] program]       ;
-
-<bank_command> = [show | check] balance |
-                 deposit <number>       |
-                 withdraw <number>      |
-                 back                   ;
-
-public <command> = <menu_command> | <bank_command>;
+public <command> = <menu_command>;

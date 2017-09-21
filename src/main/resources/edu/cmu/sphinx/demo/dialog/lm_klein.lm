@@ -1,0 +1,56 @@
+Language model created by QuickLM on Thu Sep 21 11:55:54 EDT 2017
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 3 sentences and 9 words
+
+\data\
+ngram 1=9
+ngram 2=13
+ngram 3=11
+
+\1-grams:
+-1.0544 </s> -0.3010
+-1.0544 <s> -0.2319
+-1.2304 abart -0.2467
+-1.5315 bin -0.2747
+-1.5315 gustav -0.2609
+-1.2304 in -0.2167
+-1.5315 kann -0.2747
+-1.0544 muss -0.2467
+-1.5315 ohne -0.2881
+
+\2-grams:
+-0.7782 <s> in -0.1761
+-0.4771 <s> muss -0.1249
+-0.6021 abart </s> -0.3010
+-0.6021 abart gustav 0.0000
+-0.3010 bin in -0.1761
+-0.3010 gustav </s> -0.3010
+-0.6021 in </s> -0.3010
+-0.6021 in muss -0.2218
+-0.3010 kann abart -0.1761
+-0.7782 muss abart -0.1761
+-0.7782 muss kann 0.0000
+-0.7782 muss ohne 0.0000
+-0.3010 ohne bin 0.0000
+
+\3-grams:
+-0.3010 <s> in muss
+-0.6021 <s> muss abart
+-0.6021 <s> muss ohne
+-0.3010 abart gustav </s>
+-0.3010 bin in </s>
+-0.3010 in muss kann
+-0.3010 kann abart </s>
+-0.3010 muss abart gustav
+-0.3010 muss kann abart
+-0.3010 muss ohne bin
+-0.3010 ohne bin in
+
+\end\
