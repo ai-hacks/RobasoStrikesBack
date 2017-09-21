@@ -18,8 +18,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.util.Map;
 import java.util.Optional;
 
 
@@ -56,44 +54,8 @@ public class StateChangeDemo {
         }
     }
 
-    private static class DialogReactor implements ReactToAnswer {
-        private final SpeechRecognizer dialogRecognizer;
-
-        private final Map<String, String> abbrevationMap;
-
-        public DialogReactor(SpeechRecognizer dialogRecognizer) {
-            this.dialogRecognizer = dialogRecognizer;
-            abbrevationMap = new AbbreviationImporter().getAbbrevationMap("baa.csv");
-        }
-
-        @Override
-        public Reaction reactTo(SpeechResult answer) {
-            String hypothesis = answer.getHypothesis();
-            if (UNKOWN_HYPOTHESIS.equals(hypothesis)) {
-                return new Reaction(this, "Was");
-            }
-
-            String utterance = answer.getHypothesis().trim();
-            System.out.println(utterance);
-            String nospaces = utterance.replaceAll(" ", "");
-            String acro = abbrevationMap.get(nospaces);
-            if (acro != null) {
-                return new Reaction(this, utterance + " bedeutet " + acro);
-            }
-
-            System.out.println("#### undefined #### '" + utterance + '\'');
-            return new Reaction(this, "Ich kann " + utterance + " nicht definieren");
-        }
-
-        @Override
-        public ResultProducer produceResults() {
-            return dialogRecognizer.startRecognition();
-        }
-    }
-
     public static void beep() {
-        try {
-            InputStream beepwav = ClassLoader.getSystemResourceAsStream("beep_lo.wav");
+        try(InputStream beepwav = ClassLoader.getSystemResourceAsStream("beep_lo.wav")) {
             if(beepwav == null) {
                 throw new RuntimeException("could not find beep wav");
             }
@@ -110,14 +72,13 @@ public class StateChangeDemo {
             byte[] bytes = buffer.toByteArray();
 
             AudioInputStream stream = AudioSystem.getAudioInputStream(new ByteArrayInputStream(bytes));
-            AudioFormat format = stream.getFormat();
-            DataLine.Info info = new DataLine.Info(Clip.class, format);
-            Clip clip = (Clip) AudioSystem.getLine(info);
-            TextToSpeech.BlockUntilEndListener blocker = new TextToSpeech.BlockUntilEndListener();
-            clip.addLineListener(blocker);
-            clip.open(stream);
-            clip.start();
-            blocker.waitUntilDone();
+            try(Clip clip = AudioSystem.getClip()) {
+                clip.open(stream);
+                TextToSpeech.BlockUntilEndListener blocker = new TextToSpeech.BlockUntilEndListener();
+                clip.addLineListener(blocker);
+                clip.start();
+                blocker.waitUntilDone();
+            }
         } catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
             e.printStackTrace();
         }
