@@ -18,6 +18,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 import java.util.Optional;
 
 
@@ -39,13 +40,13 @@ public class StateChangeDemo {
             ResultProducer rp = reactor.produceResults();
             Reaction react;
             try (Microphone m = new Microphone(mic)) {
-                System.out.println("getting results");
-                Player.playAndBlockUntilFinished(Sounds.BEEP_LO);
                 Optional<SpeechResult> result = rp.getResult(m.getStream());
-                react = result.map(reactor::reactTo).orElse(new Reaction(reactor, "du hast nichts geantwortet"));
+                react = result.map(reactor::reactTo).orElse(new EmptyReaction());
             }
-            Player.playAndBlockUntilFinished(new TextToSpeech(react.getResponse()));
-            reactor = react.getNextReactor();
+            if (!(react instanceof EmptyReaction)) {
+                Player.playAndBlockUntilFinished(new TextToSpeech(react.getResponse()));
+                reactor = react.getNextReactor();
+            }
         }
     }
 

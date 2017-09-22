@@ -18,7 +18,7 @@ public class TextToSpeech implements Sound {
         } catch (MaryConfigurationException e) {
             throw new RuntimeException(e);
         }
-        mary.setVoice("dfki-pavoque-neutral");
+        mary.setVoice("dfki-pavoque-neutral-hsmm");
     }
 
     @Override
