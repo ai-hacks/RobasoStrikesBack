@@ -12,17 +12,15 @@ import java.util.Optional;
 
 public class ResultProducer implements AutoCloseable {
     private final Recognizer recognizer;
-    private final Context context;
+    private final StreamDataSource dataSource;
 
-    ResultProducer(Context context) {
-        this.context = context;
-        recognizer = context.getInstance(Recognizer.class);
-        recognizer.allocate();
+    public ResultProducer(Recognizer recognizer, StreamDataSource dataSource) {
+        this.recognizer = recognizer;
+        this.dataSource = dataSource;
     }
 
     public Optional<SpeechResult> getResult(InputStream input){
-        context.getInstance(StreamDataSource.class)
-                .setInputStream(input);
+        dataSource.setInputStream(input);
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
