@@ -3,7 +3,10 @@ package com.senacor;
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.Context;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class SpeechRecognizer {
     private static final String ACOUSTIC_MODEL =
@@ -32,7 +35,8 @@ public class SpeechRecognizer {
 
     private static SpeechRecognizer buildRecognizer(Configuration configuration) {
         try {
-            return new SpeechRecognizer(new Context(configuration));
+
+            return new SpeechRecognizer(new Context("resource:/config.xml", configuration));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

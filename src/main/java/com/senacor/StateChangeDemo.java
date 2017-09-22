@@ -52,6 +52,8 @@ public class StateChangeDemo {
         }
     }
 
+    static boolean isRobaso = false;
+
     private static class DialogReactor implements ReactToAnswer {
         private final SpeechRecognizer dialogRecognizer;
 
@@ -69,16 +71,23 @@ public class StateChangeDemo {
                 return new Reaction(this, "Was");
             }
 
+            if (!isRobaso && "robaso".equals(hypothesis)) {
+                isRobaso = true;
+                return new Reaction(this, "ok");
+            }
+
             String utterance = answer.getHypothesis().trim();
             System.out.println(utterance);
+            String nodefiniere = utterance.replaceAll("definiere", "");
             String nospaces = utterance.replaceAll(" ", "");
             String acro = abbrevationMap.get(nospaces);
             if (acro != null) {
-                return new Reaction(this, utterance + " bedeutet " + acro);
+                return new Reaction(this, nodefiniere + " bedeutet " + acro);
             }
 
-            System.out.println("#### undefined #### '" + utterance + '\'');
-            return new Reaction(this, "Ich kann " + utterance + " nicht definieren");
+            isRobaso = false;
+            System.out.println("#### undefined #### '" + nodefiniere + '\'');
+            return new Reaction(this, "Ich kann " + nodefiniere + " nicht definieren");
         }
 
         @Override
