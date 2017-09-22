@@ -19,7 +19,7 @@ public enum Sounds implements Sound {
     Sounds(String wavFile) {
         try (InputStream wav = ClassLoader.getSystemResourceAsStream(wavFile)) {
             if (wav == null) {
-                throw new RuntimeException("could not find beep wav");
+                throw new RuntimeException("could not find wav: " + wavFile);
             }
             ByteArrayOutputStream out = new ByteArrayOutputStream();
 
