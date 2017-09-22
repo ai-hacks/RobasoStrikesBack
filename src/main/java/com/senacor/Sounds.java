@@ -11,9 +11,14 @@ import java.io.InputStream;
 public enum Sounds implements Sound {
     BEEP_LO("beep_lo.wav"),
     BEEP_HI("beep_hi.wav"),
-    LIGHTSABER_ON("lightsaber-turn-on.wav");
+    LIGHTSABER_ON("lightsaber-turn-on.wav"),
+    NO_SOUND();
 
     private final byte[] data;
+
+    Sounds(){
+        data = new byte[0];
+    }
 
     Sounds(String wavFile){
         try (InputStream wav = ClassLoader.getSystemResourceAsStream(wavFile)) {

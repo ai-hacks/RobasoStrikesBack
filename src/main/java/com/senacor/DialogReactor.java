@@ -31,7 +31,7 @@ class DialogReactor implements ReactToAnswer {
 
         if (!isRobaso && "robaso".equals(hypothesis)) {
             isRobaso = true;
-            return new Reaction(this, "jawohl");
+            return new Reaction(this, "ja Chef");
         }
 
         String utterance = answer.getHypothesis().trim();

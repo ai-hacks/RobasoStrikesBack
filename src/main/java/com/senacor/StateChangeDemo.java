@@ -42,9 +42,9 @@ public class StateChangeDemo {
                 System.out.println("getting results");
                 Player.playAndBlockUntilFinished(Sounds.BEEP_LO);
                 Optional<SpeechResult> result = rp.getResult(m.getStream());
-                react = result.map(reactor::reactTo).orElse(new Reaction(reactor, "du hast nichts geantwortet"));
+                react = result.map(reactor::reactTo).orElse(new Reaction(reactor));
             }
-            Player.playAndBlockUntilFinished(new TextToSpeech(react.getResponse()));
+            Player.playAndBlockUntilFinished(react.getResponse());
             reactor = react.getNextReactor();
         }
     }
