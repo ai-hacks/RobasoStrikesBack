@@ -14,8 +14,10 @@ package com.senacor;
 import edu.cmu.sphinx.api.SpeechResult;
 
 import javax.sound.sampled.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.Map;
+import java.io.InputStream;
 import java.util.Optional;
 
 
@@ -52,61 +54,31 @@ public class StateChangeDemo {
         }
     }
 
-    static boolean isRobaso = false;
-
-    private static class DialogReactor implements ReactToAnswer {
-        private final SpeechRecognizer dialogRecognizer;
-
-        private final Map<String, String> abbrevationMap;
-
-        public DialogReactor(SpeechRecognizer dialogRecognizer) {
-            this.dialogRecognizer = dialogRecognizer;
-            abbrevationMap = new AbbreviationImporter().getAbbrevationMap("baa.csv");
-        }
-
-        @Override
-        public Reaction reactTo(SpeechResult answer) {
-            String hypothesis = answer.getHypothesis();
-            if (UNKOWN_HYPOTHESIS.equals(hypothesis)) {
-                return new Reaction(this, "Was");
-            }
-
-            if (!isRobaso && "robaso".equals(hypothesis)) {
-                isRobaso = true;
-                return new Reaction(this, "ok");
-            }
-
-            String utterance = answer.getHypothesis().trim();
-            System.out.println(utterance);
-            String nodefiniere = utterance.replaceAll("definiere", "");
-            String nospaces = utterance.replaceAll(" ", "");
-            String acro = abbrevationMap.get(nospaces);
-            if (acro != null) {
-                return new Reaction(this, nodefiniere + " bedeutet " + acro);
-            }
-
-            isRobaso = false;
-            System.out.println("#### undefined #### '" + nodefiniere + '\'');
-            return new Reaction(this, "Ich kann " + nodefiniere + " nicht definieren");
-        }
-
-        @Override
-        public ResultProducer produceResults() {
-            return dialogRecognizer.startRecognition();
-        }
-    }
-
     public static void beep() {
-        try {
-            AudioInputStream stream = AudioSystem.getAudioInputStream(ClassLoader.getSystemResourceAsStream("beep_lo.wav"));
-            AudioFormat format = stream.getFormat();
-            DataLine.Info info = new DataLine.Info(Clip.class, format);
-            Clip clip = (Clip) AudioSystem.getLine(info);
-            TextToSpeech.BlockUntilEndListener blocker = new TextToSpeech.BlockUntilEndListener();
-            clip.addLineListener(blocker);
-            clip.open(stream);
-            clip.start();
-            blocker.waitUntilDone();
+        try(InputStream beepwav = ClassLoader.getSystemResourceAsStream("beep_lo.wav")) {
+            if(beepwav == null) {
+                throw new RuntimeException("could not find beep wav");
+            }
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+            int nRead;
+            byte[] data = new byte[16384];
+
+            while ((nRead = beepwav.read(data, 0, data.length)) != -1) {
+                buffer.write(data, 0, nRead);
+            }
+
+            buffer.flush();
+            byte[] bytes = buffer.toByteArray();
+
+            AudioInputStream stream = AudioSystem.getAudioInputStream(new ByteArrayInputStream(bytes));
+            try(Clip clip = AudioSystem.getClip()) {
+                clip.open(stream);
+                TextToSpeech.BlockUntilEndListener blocker = new TextToSpeech.BlockUntilEndListener();
+                clip.addLineListener(blocker);
+                clip.start();
+                blocker.waitUntilDone();
+            }
         } catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
             e.printStackTrace();
         }
