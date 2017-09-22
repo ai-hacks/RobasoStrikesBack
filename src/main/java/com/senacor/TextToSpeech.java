@@ -4,8 +4,7 @@ import marytts.LocalMaryInterface;
 import marytts.exceptions.MaryConfigurationException;
 import marytts.exceptions.SynthesisException;
 
-import javax.sound.sampled.*;
-import java.io.IOException;
+import javax.sound.sampled.AudioInputStream;
 import java.util.Locale;
 
 public class TextToSpeech implements Sound {

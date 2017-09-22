@@ -1563,6 +1563,6 @@ grammar dialog;
 
 
 <definiere> = definiere;
-<roland> = sau geil;
+public <roland> = sau geil;
 public <robaso> = robaso;
 public <command> = <definiere> + <abbrevation>;

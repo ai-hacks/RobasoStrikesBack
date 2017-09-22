@@ -13,11 +13,10 @@ package com.senacor;
 
 import edu.cmu.sphinx.api.SpeechResult;
 
-import javax.sound.sampled.*;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.TargetDataLine;
 import java.util.Optional;
 
 
@@ -39,13 +38,13 @@ public class StateChangeDemo {
             ResultProducer rp = reactor.produceResults();
             Reaction react;
             try (Microphone m = new Microphone(mic)) {
-                System.out.println("getting results");
-                Player.playAndBlockUntilFinished(Sounds.BEEP_LO);
                 Optional<SpeechResult> result = rp.getResult(m.getStream());
                 react = result.map(reactor::reactTo).orElse(new Reaction(reactor));
             }
-            Player.playAndBlockUntilFinished(react.getResponse());
-            reactor = react.getNextReactor();
+            if (!(react instanceof EmptyReaction)) {
+                Player.playAndBlockUntilFinished(react.getResponse());
+                reactor = react.getNextReactor();
+            }
         }
     }
 
