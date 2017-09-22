@@ -25,9 +25,8 @@ public class DialogReactor implements ReactToAnswer {
         }
 
         if ("robaso".equals(hypothesis)) {
-            return new Reaction(new AfterRobasoReactor(dialogRecognizer), new TextToSpeech("ja Chef");
+            return new Reaction(new AfterRobasoReactor(dialogRecognizer), "ja Chef");
         }
-
 
         return null;
     }

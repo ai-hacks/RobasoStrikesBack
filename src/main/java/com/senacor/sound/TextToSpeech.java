@@ -13,8 +13,8 @@ public class TextToSpeech implements Sound {
     private final String text;
 
     private enum Voices {
-        PAVOQUE_NN("dfki-pavoque-neutral2"),
-        PAVOQUE("dfki-pavoque-neutral-hsmm2");
+        PAVOQUE_NN("dfki-pavoque-neutral"),
+        PAVOQUE("dfki-pavoque-neutral-hsmm");
 
         private final String voiceName;
 

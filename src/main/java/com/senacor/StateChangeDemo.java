@@ -12,10 +12,10 @@
 package com.senacor;
 
 import com.senacor.reactors.DialogReactor;
-import com.senacor.sound.Sounds;
-import com.senacor.system.ReactToAnswer;
 import com.senacor.sound.Microphone;
 import com.senacor.sound.Player;
+import com.senacor.sound.Sounds;
+import com.senacor.system.ReactToAnswer;
 import com.senacor.system.Reaction;
 import com.senacor.system.ResultProducer;
 import edu.cmu.sphinx.api.SpeechResult;
@@ -48,8 +48,8 @@ public class StateChangeDemo {
                 Optional<SpeechResult> result = rp.getResult(m.getStream());
                 react = result.map(reactor::reactTo).orElse(new Reaction(reactor));
             }
-                Player.playAndBlockUntilFinished(react.getResponse());
-                reactor = react.getNextReactor();
+            Player.playAndBlockUntilFinished(react.getResponse());
+            reactor = react.getNextReactor();
         }
     }
 

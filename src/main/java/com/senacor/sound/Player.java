@@ -6,16 +6,16 @@ import java.io.IOException;
 public class Player {
 
     public static void playAndBlockUntilFinished(Sound sound) {
-        Clip speech = prepareClip(sound);
-        BlockUntilEndListener listener = new BlockUntilEndListener();
-        speech.addLineListener(listener);
-        speech.start();
-        listener.waitUntilDone();
+        try (Clip speech = prepareClip(sound)) {
+            BlockUntilEndListener listener = new BlockUntilEndListener();
+            speech.addLineListener(listener);
+            speech.start();
+            listener.waitUntilDone();
+        }
     }
 
     public static Clip prepareClip(Sound sound) {
-        try {
-            AudioInputStream audio = sound.getStream();
+        try (AudioInputStream audio = sound.getStream()) {
             Clip clip = AudioSystem.getClip();
             clip.open(audio);
             return clip;
