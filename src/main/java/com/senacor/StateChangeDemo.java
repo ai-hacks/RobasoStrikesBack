@@ -29,58 +29,23 @@ public class StateChangeDemo {
     public static void main(String[] args) throws Exception {
         TargetDataLine mic = getMicLine();
         mic.open();
-        TextToSpeech tts = new TextToSpeech();
 
-        ReactToAnswer reactor = new DialogReactor(SpeechRecognizer.fromGrammar("dialog"));
-        try (ResultProducer rp = reactor.produceResults()) {
-            while (true) {
-                System.out.println("recognizer regonizer");
-                System.out.println("recognizer initialized");
-                Reaction react;
-                try (Microphone m = new Microphone(mic)) {
-                    System.out.println("getting results");
-                    beep();
-                    Optional<SpeechResult> result = rp.getResult(m.getStream());
-                    System.out.println("got result");
-                    react = result.map(reactor::reactTo).orElse(new Reaction(reactor, "du hast nichts geantwortet"));
-                }
-                System.out.println("try to speak");
-                tts.speakAndBlockUntilFinished(react.getResponse());
-                System.out.println("spoken");
-                reactor = react.getNextReactor();
-                System.out.println("closing recognizer");
+        SpeechRecognizer dialog = SpeechRecognizer.fromGrammar("dialog", "resource:/dictionaries/alphabet_de.dic");
+        System.out.println("recognizer initialized");
+        Player.playAndBlockUntilFinished(Sounds.LIGHTSABER_ON);
+
+        ReactToAnswer reactor = new DialogReactor(dialog);
+        while (true) {
+            ResultProducer rp = reactor.produceResults();
+            Reaction react;
+            try (Microphone m = new Microphone(mic)) {
+                System.out.println("getting results");
+                Player.playAndBlockUntilFinished(Sounds.BEEP_LO);
+                Optional<SpeechResult> result = rp.getResult(m.getStream());
+                react = result.map(reactor::reactTo).orElse(new Reaction(reactor, "du hast nichts geantwortet"));
             }
-//            System.out.println("recognizer closed");
-        }
-    }
-
-    public static void beep() {
-        try(InputStream beepwav = ClassLoader.getSystemResourceAsStream("beep_lo.wav")) {
-            if(beepwav == null) {
-                throw new RuntimeException("could not find beep wav");
-            }
-            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-
-            int nRead;
-            byte[] data = new byte[16384];
-
-            while ((nRead = beepwav.read(data, 0, data.length)) != -1) {
-                buffer.write(data, 0, nRead);
-            }
-
-            buffer.flush();
-            byte[] bytes = buffer.toByteArray();
-
-            AudioInputStream stream = AudioSystem.getAudioInputStream(new ByteArrayInputStream(bytes));
-            try(Clip clip = AudioSystem.getClip()) {
-                clip.open(stream);
-                TextToSpeech.BlockUntilEndListener blocker = new TextToSpeech.BlockUntilEndListener();
-                clip.addLineListener(blocker);
-                clip.start();
-                blocker.waitUntilDone();
-            }
-        } catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
-            e.printStackTrace();
+            Player.playAndBlockUntilFinished(new TextToSpeech(react.getResponse()));
+            reactor = react.getNextReactor();
         }
     }
 
