@@ -24,23 +24,28 @@ class DialogReactor implements ReactToAnswer {
             return new Reaction(this, "Was");
         }
 
+        if ("sau geil".equals(hypothesis)) {
+            return new Reaction(this, "hallo roland");
+        }
+
 
         if (!isRobaso && "robaso".equals(hypothesis)) {
             isRobaso = true;
-            return new Reaction(this, "ok");
+            return new Reaction(this, "jawohl");
         }
 
         String utterance = answer.getHypothesis().trim();
         System.out.println(utterance);
-        String nospaces = utterance.replaceAll(" ", "");
+        String nodefniere = utterance.replaceAll("definiere", "");
+        String nospaces = nodefniere.replaceAll(" ", "");
         String acro = abbrevationMap.get(nospaces);
         if (acro != null) {
-            return new Reaction(this, utterance + " bedeutet " + acro);
+            return new Reaction(this, nodefniere + " bedeutet " + acro);
         }
 
         isRobaso = false;
-        System.out.println("#### undefined #### '" + utterance + '\'');
-        return new Reaction(this, "Ich kann " + utterance + " nicht definieren");
+        System.out.println("#### undefined #### '" + nodefniere + '\'');
+        return new Reaction(this, "Ich kann " + nodefniere + " nicht definieren");
     }
 
     @Override
