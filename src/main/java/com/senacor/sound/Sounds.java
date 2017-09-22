@@ -1,4 +1,4 @@
-package com.senacor;
+package com.senacor.sound;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -12,15 +12,11 @@ public enum Sounds implements Sound {
     BEEP_LO("beep_lo.wav"),
     BEEP_HI("beep_hi.wav"),
     LIGHTSABER_ON("lightsaber-turn-on.wav"),
-    NO_SOUND();
+    NO_SOUND("empty.wav");
 
     private final byte[] data;
 
-    Sounds(){
-        data = new byte[0];
-    }
-
-    Sounds(String wavFile){
+    Sounds(String wavFile) {
         try (InputStream wav = ClassLoader.getSystemResourceAsStream(wavFile)) {
             if (wav == null) {
                 throw new RuntimeException("could not find beep wav");

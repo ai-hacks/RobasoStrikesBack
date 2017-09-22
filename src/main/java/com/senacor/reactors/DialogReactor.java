@@ -1,8 +1,13 @@
-package com.senacor;
+package com.senacor.reactors;
 
+import com.senacor.*;
+import com.senacor.sound.TextToSpeech;
+import com.senacor.system.ReactToAnswer;
+import com.senacor.system.Reaction;
+import com.senacor.system.ResultProducer;
 import edu.cmu.sphinx.api.SpeechResult;
 
-class DialogReactor implements ReactToAnswer {
+public class DialogReactor implements ReactToAnswer {
     private final SpeechRecognizer dialogRecognizer;
 
 
@@ -20,7 +25,7 @@ class DialogReactor implements ReactToAnswer {
         }
 
         if ("robaso".equals(hypothesis)) {
-            return new Reaction(new AfterRobasoReactor(dialogRecognizer), "ja Chef");
+            return new Reaction(new AfterRobasoReactor(dialogRecognizer), new TextToSpeech("ja Chef");
         }
 
 

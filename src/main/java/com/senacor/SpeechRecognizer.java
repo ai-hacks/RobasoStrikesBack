@@ -1,14 +1,12 @@
 package com.senacor;
 
+import com.senacor.system.ResultProducer;
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.Context;
 import edu.cmu.sphinx.frontend.util.StreamDataSource;
 import edu.cmu.sphinx.recognizer.Recognizer;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 public class SpeechRecognizer {
     private static final String ACOUSTIC_MODEL =

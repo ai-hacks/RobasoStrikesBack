@@ -1,5 +1,9 @@
-package com.senacor;
+package com.senacor.reactors;
 
+import com.senacor.*;
+import com.senacor.system.ReactToAnswer;
+import com.senacor.system.Reaction;
+import com.senacor.system.ResultProducer;
 import edu.cmu.sphinx.api.SpeechResult;
 
 import java.util.Map;

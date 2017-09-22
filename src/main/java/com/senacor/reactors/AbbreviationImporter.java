@@ -1,4 +1,4 @@
-package com.senacor;
+package com.senacor.reactors;
 
 import org.apache.commons.lang3.StringUtils;
 

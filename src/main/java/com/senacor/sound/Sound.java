@@ -1,4 +1,4 @@
-package com.senacor;
+package com.senacor.sound;
 
 import javax.sound.sampled.AudioInputStream;
 

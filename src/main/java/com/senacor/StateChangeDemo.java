@@ -11,6 +11,13 @@
 
 package com.senacor;
 
+import com.senacor.reactors.DialogReactor;
+import com.senacor.sound.Sounds;
+import com.senacor.system.ReactToAnswer;
+import com.senacor.sound.Microphone;
+import com.senacor.sound.Player;
+import com.senacor.system.Reaction;
+import com.senacor.system.ResultProducer;
 import edu.cmu.sphinx.api.SpeechResult;
 
 import javax.sound.sampled.AudioFormat;
@@ -41,10 +48,8 @@ public class StateChangeDemo {
                 Optional<SpeechResult> result = rp.getResult(m.getStream());
                 react = result.map(reactor::reactTo).orElse(new Reaction(reactor));
             }
-            if (!(react instanceof EmptyReaction)) {
                 Player.playAndBlockUntilFinished(react.getResponse());
                 reactor = react.getNextReactor();
-            }
         }
     }
 
@@ -55,5 +60,4 @@ public class StateChangeDemo {
             throw new RuntimeException(e);
         }
     }
-
 }

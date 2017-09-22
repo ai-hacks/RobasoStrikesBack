@@ -1,5 +1,6 @@
-package com.senacor;
+package com.senacor.sound;
 
+import com.senacor.sound.Sound;
 import marytts.LocalMaryInterface;
 import marytts.exceptions.MaryConfigurationException;
 import marytts.exceptions.SynthesisException;

@@ -1,4 +1,8 @@
-package com.senacor;
+package com.senacor.system;
+
+import com.senacor.sound.Sound;
+import com.senacor.sound.Sounds;
+import com.senacor.sound.TextToSpeech;
 
 public class Reaction {
     private final ReactToAnswer nextReactor;

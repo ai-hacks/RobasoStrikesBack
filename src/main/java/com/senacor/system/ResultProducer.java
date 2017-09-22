@@ -1,4 +1,4 @@
-package com.senacor;
+package com.senacor.system;
 
 import edu.cmu.sphinx.api.Context;
 import edu.cmu.sphinx.api.SpeechResult;
