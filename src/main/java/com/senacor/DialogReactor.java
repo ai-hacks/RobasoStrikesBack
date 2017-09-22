@@ -40,6 +40,7 @@ class DialogReactor implements ReactToAnswer {
         String nospaces = nodefniere.replaceAll(" ", "");
         String acro = abbrevationMap.get(nospaces);
         if (acro != null) {
+            isRobaso = false;
             return new Reaction(this, nodefniere + " bedeutet " + acro);
         }
 
